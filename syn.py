@@ -7,21 +7,30 @@ bash$:python3 syn.py ~/udisk/music/ ~/music/ -s
 利用现有旧硬盘、双盘硬盘盒快速实现数据多重备份。
 
 '''
+
 import os,sys,shutil
 
-Root = sys.argv[1]
-Dest = sys.argv[2]
-syn = sys.argv[3]
-i = 0
-for (root, dirs, files) in os.walk(Root):
-    new_root = root.replace(Root, Dest, 1)
-    if not os.path.exists(new_root):
-        os.mkdir(new_root)
-    for f in files:
-        path = os.path.join(root,f)
-        Dest_path=path.replace(Root,Dest,1)
-        if os.path.exists(Dest_path):
-            if os.path.getctime(path) > os.path.getctime(Dest_path ) or os.path.getmtime(path) > os.path.getmtime(Dest_path ):
+def synfile(Root,Dest,syn=None):
+
+    i = 0
+    for (root, dirs, files) in os.walk(Root):
+        new_root = root.replace(Root, Dest, 1)
+        if not os.path.exists(new_root):
+            os.mkdir(new_root)
+        for f in files:
+            path = os.path.join(root,f)
+            Dest_path=path.replace(Root,Dest,1)
+            if os.path.exists(Dest_path):
+                if os.path.getctime(path) > os.path.getctime(Dest_path ) or os.path.getmtime(path) > os.path.getmtime(Dest_path ):
+                    try:
+                        shutil.copy(path, Dest_path)
+                        i += 1
+                        print(i)
+                    except IOError as e:
+                        print("Unable to copy file. %s" % e)
+                    except:
+                        print("Unexpected error:", sys.exc_info())
+            else:
                 try:
                     shutil.copy(path, Dest_path)
                     i += 1
@@ -30,18 +39,8 @@ for (root, dirs, files) in os.walk(Root):
                     print("Unable to copy file. %s" % e)
                 except:
                     print("Unexpected error:", sys.exc_info())
-        else:
-            try:
-                shutil.copy(path, Dest_path)
-                i += 1
-                print(i)
-            except IOError as e:
-                print("Unable to copy file. %s" % e)
-            except:
-                print("Unexpected error:", sys.exc_info())
 
-if syn is not None:
-    if sys =='-s':
+    if syn =='-s':
         for (root, dirs, files) in os.walk(Dest):
             new_root = root.replace(Dest, Root, 1)
             if not os.path.exists(new_root):
@@ -54,4 +53,10 @@ if syn is not None:
                         os.remove(path)
                     except:
                         continue
+
+if __name__=="__main__":
+    if len(sys.argv)==4:
+        sysfile(sys.argv[1],sys.argv[2],sys.argv[3])
+    if len(sys.argv)==3:
+        sysfile(sys.argv[1],sys.argv[2])
 
