@@ -1,0 +1,48 @@
+import os,sys,shutil
+
+Root = sys.argv[1]
+Dest = sys.argv[2]
+syn = sys.argv[3]
+i = 0
+for (root, dirs, files) in os.walk(Root):
+    new_root = root.replace(Root, Dest, 1)
+    if not os.path.exists(new_root):
+        os.mkdir(new_root)
+    for f in files:
+        path = os.path.join(root,f)
+        Dest_path=path.replace(Root,Dest,1)
+        if os.path.exists(Dest_path):
+            if os.path.getctime(path) > os.path.getctime(Dest_path ) or os.path.getmtime(path) > os.path.getmtime(Dest_path ):
+                try:
+                    shutil.copy(path, Dest_path)
+                    i += 1
+                    print(i)
+                except IOError as e:
+                    print("Unable to copy file. %s" % e)
+                except:
+                    print("Unexpected error:", sys.exc_info())
+        else:
+            try:
+                shutil.copy(path, Dest_path)
+                i += 1
+                print(i)
+            except IOError as e:
+                print("Unable to copy file. %s" % e)
+            except:
+                print("Unexpected error:", sys.exc_info())
+
+if syn is not None:
+    if sys =='-s':
+        for (root, dirs, files) in os.walk(Dest):
+            new_root = root.replace(Dest, Root, 1)
+            if not os.path.exists(new_root):
+                shutil.rmtree(root)  #删除文件夹及其文件
+            for f in files:#删除同级目录下不存在的文件
+                path = os.path.join(root,f)
+                Dest_path=path.replace(Dest,Root,1)
+                if not os.path.exists(Dest_path):
+                    try:
+                        os.remove(path)
+                    except:
+                        continue
+
