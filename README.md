@@ -31,7 +31,12 @@ Sqlite3碰巧也是2000年推出的嵌入式、跨平台、开源的RDBMS。现�
 基于对音乐和编程的热爱，我制作了这个小工具，用来更新我的音乐播放器中的tag信息，实现按音乐风格分类播放。在此，不得不吐槽一下网易云音乐和QQ音乐，即使是拥有付费版权的音乐也缺乏对tag信息的维护，除了artist、title信息可用外，其它信息要么不完整，要么错误百出，缺乏对音乐的执着，忘记了创业时的初心。
 
 #### 使用方法
-* 在官网下载最新的[数据库文件](https://musicbrainz.org/doc/MusicBrainz_Database/Download)，使用
+* 在官网下载最新的[数据库文件](https://musicbrainz.org/doc/MusicBrainz_Database/Download)并解压。
+* 在sqlite3里执行.read musicbrainz.sql初始化数据库文件。
+* 修改musicbrainz_import.py相关配置，与mbdump文件夹和sqlite3文件一一对应。
+* 执行python3 musicbrainz.py,这个过程大概3个小时，毕竟要读取1亿多条记录。
+* 更新过程和创建其实是一样的，需要下载最新的数据库文件然后一条一条的读，更新和创建花费的时间差不多。
+* 快捷方式：直接下载已经建好的数据库文件（百度网盘上传太慢，待更新）
 
 
 
