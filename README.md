@@ -10,7 +10,7 @@
 希望自己能一直坚持下去。
 
 ## 目录
-1 [MusicBrainz.py 数据库Sqlite实现](#musicbrainz.py-数据库sqlite实现)
+1 [MusicBrainz数据库Sqlite实现](#musicbrainz数据库sqlite实现)
 
 ### Cheap solution for backup of personal data
 d
@@ -50,5 +50,5 @@ d
 dd
 
 
-### MusicBrainz.py 数据库Sqlite实现
+### MusicBrainz数据库Sqlite实现
 
