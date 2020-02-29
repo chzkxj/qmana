@@ -8,7 +8,7 @@
 
 ## 目录
 1. [个人数据备份廉价解决方案](#个人数据备份廉价解决方案)
-2. [MusicBrainz数据库Sqlite实现](#musicbrainz数据库sqlite实现)
+2. [MusicBrainz数据库Sqlite实现](#musicbrainz数据库sqlite3实现)
 
 ### 个人数据备份廉价解决方案
 
