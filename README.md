@@ -14,7 +14,7 @@
 
 解决公有云收费，数据安全、个人隐私无保障，下载缓慢以及私有云价格昂贵等需求痛点。利用现有旧硬盘、双盘硬盘盒快速实现数据多重备份。其实没有什么技术难度，但确实解决了身边的数据备份需求，回头看之前保存的各种电影、电子书才发现，原来自己拍摄的照片和视频才是无价的，时间不能重来，人生只有一次，且行且珍惜。
 
-#### 示例
+#### 使用方法
 ```bash
 > bash$:python3 syn.py ~/udisk/music/ ~/music/ -s
 
@@ -22,7 +22,17 @@
 ```
 
 
-### MusicBrainz数据库Sqlite实现
+### MusicBrainz数据库Sqlite3实现
+
+MusicBrainz是一个2000年上线的音乐标签分享编辑网站，所有数据都是开源的，可以通过API调用（[XML](https://musicbrainz.org/doc/Development/XML_Web_Service/Version_2)/[Python](https://python-musicbrainzngs.readthedocs.io/en/v0.7.1/))有自家的APP，也可以下载[数据库文件](https://musicbrainz.org/doc/MusicBrainz_Database/Download)(支持导入PostgreSQL数据库）可以说是非常的良心了，官方自称是是社区维护的音乐信息开源百科全书。目前该数据库收纳了161万artist,244万release,2189万recording和192万条tag信息。
+
+Sqlite3碰巧也是2000年推出的嵌入式、跨平台、开源的RDBMS。现在几乎所有的现代浏览器、操作系统都使用这个核心代码不到600K的数据库，C/C++、JAVA、PHP、Python等编程语言都原生支持（好像没有不支持的），如果没有Sqlite3，几乎所有的智能设备都无法正常工作，天啊，简直是神一样的存在！不需要像Oracle、Mysql、PostgreSQL等重型数据库复杂的配置，一个文件搞定全部工作。性能也是杠杠的，在树莓派3B+上insert操作达到1万条/秒（性能的瓶颈在I/O设备，不在CPU和内存，估计在M.2接口(NVMe协议)SSD上会有更好的表现。
+
+基于对音乐和编程的热爱，我制作了这个小工具，用来更新我的音乐播放器中的tag信息，实现按音乐风格分类播放。在此，不得不吐槽一下网易云音乐和QQ音乐，即使是拥有付费版权的音乐也缺乏对tag信息的维护，除了artist、title信息可用外，其它信息要么不完整，要么错误百出，缺乏对音乐的执着，忘记了创业时的初心。
+
+#### 使用方法
+
+
 
 
 
