@@ -24,7 +24,7 @@
 
 ### MusicBrainz数据库Sqlite3实现
 
-MusicBrainz是一个2000年上线的音乐标签分享编辑网站，所有数据都是开源的，可以通过API调用（[XML](https://musicbrainz.org/doc/Development/XML_Web_Service/Version_2)/[Python](https://python-musicbrainzngs.readthedocs.io/en/v0.7.1/))有自家的APP，也可以下载[数据库文件](https://musicbrainz.org/doc/MusicBrainz_Database/Download)(支持导入PostgreSQL数据库）可以说是非常的良心了，官方自称是是社区维护的音乐信息开源百科全书。目前该数据库收纳了161万artist,244万release,2189万recording和192万条tag信息。
+MusicBrainz是一个2000年上线的音乐标签分享编辑网站，所有数据都是开源的，可以通过API调用（[XML](https://musicbrainz.org/doc/Development/XML_Web_Service/Version_2)/[Python](https://python-musicbrainzngs.readthedocs.io/en/v0.7.1/))有自家的APP，也可以下载[数据库文件](https://musicbrainz.org/doc/MusicBrainz_Database/Download)(支持导入PostgreSQL数据库）可以说是非常的良心了，官方自称是是社区维护的音乐信息开源百科全书。目前该数据库收纳了161万artist,244万release,2189万recording和192万条tag信息（对港台、大陆中文歌曲的收录也越来越全面）。
 
 Sqlite3碰巧也是2000年推出的嵌入式、跨平台、开源的RDBMS。现在几乎所有的现代浏览器、操作系统都使用这个核心代码不到600K的数据库，C/C++、JAVA、PHP、Python等编程语言都原生支持（好像没有不支持的），如果没有Sqlite3，几乎所有的智能设备都无法正常工作，天啊，简直是神一样的存在！不需要像Oracle、Mysql、PostgreSQL等重型数据库复杂的配置，一个文件搞定全部工作。性能也是杠杠的，在树莓派3B+上insert操作达到1万条/秒（性能的瓶颈在I/O设备，不在CPU和内存，估计在M.2接口(NVMe协议)SSD上会有更好的表现。
 
