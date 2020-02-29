@@ -10,9 +10,10 @@
 希望自己能一直坚持下去。
 
 ## 目录
-1 [MusicBrainz数据库Sqlite实现](#musicbrainz数据库sqlite实现)
+1. [个人数据备份廉价解决方案](#个人数据备份廉价解决方案)
+2. [MusicBrainz数据库Sqlite实现](#musicbrainz数据库sqlite实现)
 
-### Cheap solution for backup of personal data
+### 个人数据备份廉价解决方案
 d
 d
 
