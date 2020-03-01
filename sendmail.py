@@ -12,7 +12,6 @@ sender = 'yourname@icloud.com'
 receivers = [input('请输入收信人：')]
 subject=input('请输入邮件主题：')
 content=input('请输入邮件主内容:')
-
 send_mail(
                     subject,
                     content,
