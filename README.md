@@ -9,6 +9,7 @@
 ## 目录
 1. [个人数据备份廉价解决方案](#个人数据备份廉价解决方案)
 2. [MusicBrainz数据库Sqlite3实现](#musicbrainz数据库sqlite3实现)
+3. [在shell中发送邮件](#在shell中发送邮件)
 
 ### 个人数据备份廉价解决方案
 
@@ -37,6 +38,25 @@ Sqlite3碰巧也是2000年推出的嵌入式、跨平台、开源的RDBMS。现�
 * 执行python3 musicbrainz.py,这个过程大概3个小时，毕竟要读取1亿多条记录。
 * 更新过程和创建其实是一样的，需要下载最新的数据库文件然后一条一条的读，更新和创建花费的时间差不多。
 * 快捷方式：直接下载已经建好的数据库文件（百度网盘上传太慢，待更新）
+
+### 在shell中发送邮件
+
+初看这个命题感觉没什么难度，网上教程一大把，可真到实施的时候发现大部分都不好使，一方面是配置邮件服务器一大堆配置，另一方面邮件提供商似乎没打算让你这么干，提供的配置信息要么不全，要么没什么卵用（网易、QQ邮箱之类）。之后就想到了自己比较擅长的Django，Django的django.core.mail模块把可能遇到的配置问题都给你搞定了，只需要配置个人信息就好了，一次性搞定。这下可以在linux上装一把大神了^-^。（为什么没直接用Python的smtplib,原因是要配置SSL或者TLS，多次试验未果，遂放弃）
+
+### 使用方法
+* 必备工具 python3 Django
+* 新建一个Django项目，或者在再有项目的settings.py文件中配置以下参数(推荐支持独立密码的邮件服务商，比如苹果、微软：
+```python
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.mail.me.com'
+EMAIL_PORT=587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'yourname@icloud.com'
+EMAIL_HOST_PASSWORD = 'yourpassword'
+DEFAULT_FROM_EMAIL='yourname@icloud.com'
+```
+* 运行sendmail.py脚本。
+
 
 
 
