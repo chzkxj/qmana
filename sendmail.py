@@ -8,7 +8,7 @@ os.environ['DJANGO_SETTINGS_MODULE'] = 'yourobjects.settings' # 修改配置名�
 django.setup()
 
 from django.core.mail import send_mail
-sender = 'czkxj@icloud.com'
+sender = 'yourname@icloud.com'
 receivers = [input('请输入收信人：')]
 subject=input('请输入邮件主题：')
 content=input('请输入邮件主内容:')
