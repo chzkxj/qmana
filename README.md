@@ -37,7 +37,7 @@ Sqlite3碰巧也是2000年推出的嵌入式、跨平台、开源的RDBMS。现�
 * 修改musicbrainz_import.py相关配置，与mbdump文件夹和sqlite3文件一一对应。
 * 执行python3 musicbrainz.py,这个过程大概3个小时，毕竟要读取1亿多条记录。
 * 更新过程和创建其实是一样的，需要下载最新的数据库文件然后一条一条的读，更新和创建花费的时间差不多。
-* 快捷方式：直接下载已经建好的数据库文件（百度网盘上传太慢，待更新）
+* 快捷方式：直接下载已经建好的[数据库文件](https://pan.baidu.com/s/13hgejNgOk1tzO7LIS843Ag) 密码:nhmy
 
 ### 在shell中发送邮件
 
